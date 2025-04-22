@@ -138,7 +138,7 @@
     let temp2;
     let temp3;
     let loadedOpts;
-    if (localStorage.getItem("opts")) loadedOpts=JSON.parse(localStorage.getItem("opts"));
+    if (localStorage.opts) loadedOpts=JSON.parse(localStorage.getItem("opts"));
     let font="Roboto Mono";
     if (loadedOpts.font) font=loadedOpts.font;
     let fontSize=14;
