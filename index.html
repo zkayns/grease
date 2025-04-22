@@ -135,142 +135,141 @@
 <script src="jquery-3.7.1.js"></script>
 <script>
     try {
-    let temp;
-    let temp2;
-    let temp3;
-    let loadedOpts;
-    if (localStorage.getItem("opts")) loadedOpts=JSON.parse(localStorage.getItem("opts"));
-    alert(typeof loadedOpts);
-    let font="Roboto Mono";
-    if (typeof loadedOpts!="undefined") font=loadedOpts.font;
-    let fontSize=14;
-    if (typeof loadedOpts!="undefined") fontSize=loadedOpts.fontSize;
-    $("#text").css("font-size", `${fontSize}px`);
-    $("*").css("font-family", font);
-    let fonts=[
-        "Times New Roman",
-        "Georgia",
-        "Garamond",
-        "Arial",
-        "Verdana",
-        "Helvetica",
-        "Courier New",
-        "Lucida Console",
-        "Monaco",
-        "Brush Script MT",
-        "Lucida Handwriting",
-        "Open Sans",
-        "Roboto Mono",
-        "Lobster",
-        "Lobster Two",
-        "Comic Sans MS",
-        "Wingdings",
-        "Roboto",
-        "Roboto Flex",
-        "Nunito Sans",
-        "Special Gothic",
-        "Ubuntu",
-        "Work Sans",
-        "Inter",
-        "DM Sans",
-        "Mulish",
-        "Fira Sans",
-        "National Park",
-        "Poppins",
-        "Lato",
-        "Raleway",
-        "Rubik"
-    ];
-    fonts.sort((a, b)=>a.localeCompare(b));
-    for (let i in fonts) $("#font").append(`<option value="${fonts[i]}" ${fonts[i]==font?"selected":""}>${fonts[i]}</option>`);
-    $(".menu").hide();
-    $(".ui").hide();
-    function boundingCheck(x, y, bounds) {
-        if (x>bounds.right) return false;
-        if (x<bounds.left) return false;
-        if (y>bounds.bottom) return false;
-        if (y<bounds.top) return false;
-        return true;
-    };
-    $(document).on("mousedown", function(e){
-        if (!boundingCheck(e.clientX, e.clientY, $("#fileButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#fileMenu").get(0).getBoundingClientRect())&&$("#fileMenu").is(":visible")) $("#fileMenu").hide();
-        if (!boundingCheck(e.clientX, e.clientY, $("#editButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#editMenu").get(0).getBoundingClientRect())&&$("#editMenu").is(":visible")) $("#editMenu").hide();
-        if (!boundingCheck(e.clientX, e.clientY, $("#viewButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#viewMenu").get(0).getBoundingClientRect())&&$("#viewMenu").is(":visible")) $("#viewMenu").hide();
-        if (!boundingCheck(e.clientX, e.clientY, $("#replaceUi").get(0).getBoundingClientRect())&&$("#replaceUi").is(":visible")) $("#replaceUi").hide();
-        if (!boundingCheck(e.clientX, e.clientY, $("#fontUi").get(0).getBoundingClientRect())&&$("#fontUi").is(":visible")) $("#fontUi").hide();
-    });
-    $(document).on("keydown", function(e){
-        if (e.key=="Escape") $(".ui").hide();
-    });
-    $("#text").css("height", window.innerHeight-parseFloat($("#topBar").get(0).getBoundingClientRect().height)+"px");
-    $("#fileButton").on("mousedown", function(){
-        $("#fileMenu").toggle();
-        $("#fileMenu").css("top", $("#fileButton").get(0).getBoundingClientRect().bottom);
-        $("#fileMenu").css("left", $("#fileButton").get(0).getBoundingClientRect().left-2);
-    });
-    $("#newFile").on("click", function(){
-        $("#text").html("");
-        $("#fileMenu").hide();
-    })
-    $("#openFile").on("click", function(){
-        $("#fileUpload").click();
-        $("#fileMenu").hide();
-    });
-    $("#editButton").on("mousedown", function(){
-        $("#editMenu").toggle();
-        $("#editMenu").css("top", $("#editButton").get(0).getBoundingClientRect().bottom);
-        $("#editMenu").css("left", $("#editButton").get(0).getBoundingClientRect().left-2);
-    });
-    $("#viewButton").on("mousedown", function(){
-        $("#viewMenu").toggle();
-        $("#viewMenu").css("top", $("#viewButton").get(0).getBoundingClientRect().bottom);
-        $("#viewMenu").css("left", $("#viewButton").get(0).getBoundingClientRect().left-2);
-    });
-    $("#fileUpload").on("change", function(){
-        temp=new FileReader();
-        temp2=this.files[0];
-        temp.addEventListener("load", ()=>{$("#text").html(temp.result)}, false);
-        temp.readAsText(temp2);
-    });
-    $("#saveFile").on("click", function(){
-        temp=new Blob([$("#text").html()]);
-        $("#download").attr("id", "download");
-        $("#download").attr("href", URL.createObjectURL(temp));
-        $("#download").attr("download", "savedText.txt");
-        $("#fileMenu").hide();
-    });
-    $("#replaceButton").on("click", function(){
-        $("#editMenu").hide();
-        $("#replaceUi").toggle();
-        $("#replaceUi").css("left", window.innerWidth/2-$("#replaceUi").get(0).getBoundingClientRect().width/2);
-        $("#replaceUi").css("top", window.innerHeight/2-$("#replaceUi").get(0).getBoundingClientRect().height/2);
-    });
-    $("#replace").on("click", function(){
-        $("#text").html($("#text").html().replaceAll($("#toReplace").val(), $("#replaceWith").val()))
-    });
-    $("#fontButton").on("click", function(){
-        $("#viewMenu").hide();
-        $("#fontUi").toggle();
-        $("#fontUi").css("left", window.innerWidth/2-$("#fontUi").get(0).getBoundingClientRect().width/2);
-        $("#fontUi").css("top", window.innerHeight/2-$("#fontUi").get(0).getBoundingClientRect().height/2);
-        $("#fontSize").val(fontSize);
-    });
-    $("#saveFontOpts").on("click", function(){
-        if (!isNaN(parseFloat($("#fontSize").val()))) $("#text").css("font-size", `${$("#fontSize").val()}px`);
-        $("*").css("font-family", `"${$("#font").val()}"`);
-        font=$("#font").val();
+        let temp;
+        let temp2;
+        let temp3;
+        let loadedOpts;
+        if (localStorage.getItem("opts")) loadedOpts=JSON.parse(localStorage.getItem("opts"));
+        let font="Roboto Mono";
+        if (typeof loadedOpts!="undefined") font=loadedOpts.font;
+        let fontSize=14;
+        if (typeof loadedOpts!="undefined") fontSize=loadedOpts.fontSize;
+        $("#text").css("font-size", `${fontSize}px`);
+        $("*").css("font-family", font);
+        let fonts=[
+            "Times New Roman",
+            "Georgia",
+            "Garamond",
+            "Arial",
+            "Verdana",
+            "Helvetica",
+            "Courier New",
+            "Lucida Console",
+            "Monaco",
+            "Brush Script MT",
+            "Lucida Handwriting",
+            "Open Sans",
+            "Roboto Mono",
+            "Lobster",
+            "Lobster Two",
+            "Comic Sans MS",
+            "Wingdings",
+            "Roboto",
+            "Roboto Flex",
+            "Nunito Sans",
+            "Special Gothic",
+            "Ubuntu",
+            "Work Sans",
+            "Inter",
+            "DM Sans",
+            "Mulish",
+            "Fira Sans",
+            "National Park",
+            "Poppins",
+            "Lato",
+            "Raleway",
+            "Rubik"
+        ];
+        fonts.sort((a, b)=>a.localeCompare(b));
+        for (let i in fonts) $("#font").append(`<option value="${fonts[i]}" ${fonts[i]==font?"selected":""}>${fonts[i]}</option>`);
+        $(".menu").hide();
+        $(".ui").hide();
+        function boundingCheck(x, y, bounds) {
+            if (x>bounds.right) return false;
+            if (x<bounds.left) return false;
+            if (y>bounds.bottom) return false;
+            if (y<bounds.top) return false;
+            return true;
+        };
+        $(document).on("mousedown", function(e){
+            if (!boundingCheck(e.clientX, e.clientY, $("#fileButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#fileMenu").get(0).getBoundingClientRect())&&$("#fileMenu").is(":visible")) $("#fileMenu").hide();
+            if (!boundingCheck(e.clientX, e.clientY, $("#editButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#editMenu").get(0).getBoundingClientRect())&&$("#editMenu").is(":visible")) $("#editMenu").hide();
+            if (!boundingCheck(e.clientX, e.clientY, $("#viewButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#viewMenu").get(0).getBoundingClientRect())&&$("#viewMenu").is(":visible")) $("#viewMenu").hide();
+            if (!boundingCheck(e.clientX, e.clientY, $("#replaceUi").get(0).getBoundingClientRect())&&$("#replaceUi").is(":visible")) $("#replaceUi").hide();
+            if (!boundingCheck(e.clientX, e.clientY, $("#fontUi").get(0).getBoundingClientRect())&&$("#fontUi").is(":visible")) $("#fontUi").hide();
+        });
+        $(document).on("keydown", function(e){
+            if (e.key=="Escape") $(".ui").hide();
+        });
         $("#text").css("height", window.innerHeight-parseFloat($("#topBar").get(0).getBoundingClientRect().height)+"px");
-        fontSize=parseFloat($("#fontSize").val());
-        $("#fontUi").hide();
-    });
-    $("#fontSize").on("keydown", function(e){
-        if (isNaN(parseInt(e.key))&&e.key!="Backspace"&&e.key!=".") e.preventDefault();
-    });
-    function saveOpts() {
-        let opts={fontSize: fontSize, font: font};
-        localStorage.setItem("opts", JSON.stringify(opts));
-    };
-    setInterval(saveOpts, 1);
+        $("#fileButton").on("mousedown", function(){
+            $("#fileMenu").toggle();
+            $("#fileMenu").css("top", $("#fileButton").get(0).getBoundingClientRect().bottom);
+            $("#fileMenu").css("left", $("#fileButton").get(0).getBoundingClientRect().left-2);
+        });
+        $("#newFile").on("click", function(){
+            $("#text").html("");
+            $("#fileMenu").hide();
+        });
+        $("#openFile").on("click", function(){
+            $("#fileUpload").click();
+            $("#fileMenu").hide();
+        });
+        $("#editButton").on("mousedown", function(){
+            $("#editMenu").toggle();
+            $("#editMenu").css("top", $("#editButton").get(0).getBoundingClientRect().bottom);
+            $("#editMenu").css("left", $("#editButton").get(0).getBoundingClientRect().left-2);
+        });
+        $("#viewButton").on("mousedown", function(){
+            $("#viewMenu").toggle();
+            $("#viewMenu").css("top", $("#viewButton").get(0).getBoundingClientRect().bottom);
+            $("#viewMenu").css("left", $("#viewButton").get(0).getBoundingClientRect().left-2);
+        });
+        $("#fileUpload").on("change", function(){
+            temp=new FileReader();
+            temp2=this.files[0];
+            temp.addEventListener("load", ()=>{$("#text").html(temp.result)}, false);
+            temp.readAsText(temp2);
+        });
+        $("#saveFile").on("click", function(){
+            temp=new Blob([$("#text").html()]);
+            $("#download").attr("id", "download");
+            $("#download").attr("href", URL.createObjectURL(temp));
+            $("#download").attr("download", "savedText.txt");
+            $("#fileMenu").hide();
+        });
+        $("#replaceButton").on("click", function(){
+            $("#editMenu").hide();
+            $("#replaceUi").toggle();
+            $("#replaceUi").css("left", window.innerWidth/2-$("#replaceUi").get(0).getBoundingClientRect().width/2);
+            $("#replaceUi").css("top", window.innerHeight/2-$("#replaceUi").get(0).getBoundingClientRect().height/2);
+        });
+        $("#replace").on("click", function(){
+            $("#text").html($("#text").html().replaceAll($("#toReplace").val(), $("#replaceWith").val()))
+        });
+        $("#fontButton").on("click", function(){
+            $("#viewMenu").hide();
+            $("#fontUi").toggle();
+            $("#fontUi").css("left", window.innerWidth/2-$("#fontUi").get(0).getBoundingClientRect().width/2);
+            $("#fontUi").css("top", window.innerHeight/2-$("#fontUi").get(0).getBoundingClientRect().height/2);
+            $("#fontSize").val(fontSize);
+        });
+        $("#saveFontOpts").on("click", function(){
+            if (!isNaN(parseFloat($("#fontSize").val()))) $("#text").css("font-size", `${$("#fontSize").val()}px`);
+            $("*").css("font-family", `"${$("#font").val()}"`);
+            font=$("#font").val();
+            $("#text").css("height", window.innerHeight-parseFloat($("#topBar").get(0).getBoundingClientRect().height)+"px");
+            fontSize=parseFloat($("#fontSize").val());
+            $("#fontUi").hide();
+        });
+        $("#fontSize").on("keydown", function(e){
+            if (isNaN(parseInt(e.key))&&e.key!="Backspace"&&e.key!=".") e.preventDefault();
+        });
+        function saveOpts() {
+            let opts={fontSize: fontSize, font: font};
+            localStorage.setItem("opts", JSON.stringify(opts));
+        };
+        setInterval(saveOpts, 1);
     } catch (e) {
         alert(e);
     };
