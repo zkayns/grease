@@ -132,17 +132,19 @@
         border: 1px solid black;
     }
 </style>
-<script src="./jquery-3.7.1.js"></script>
+<script src="jquery-3.7.1.js"></script>
 <script>
+    try {
     let temp;
     let temp2;
     let temp3;
     let loadedOpts;
-    if (localStorage.opts) loadedOpts=JSON.parse(localStorage.getItem("opts"));
+    if (localStorage.getItem("opts")) loadedOpts=JSON.parse(localStorage.getItem("opts"));
+    alert(typeof loadedOpts);
     let font="Roboto Mono";
-    if (loadedOpts.font) font=loadedOpts.font;
+    if (typeof loadedOpts!="undefined") font=loadedOpts.font;
     let fontSize=14;
-    if (loadedOpts.fontSize) fontSize=loadedOpts.fontSize;
+    if (typeof loadedOpts!="undefined") fontSize=loadedOpts.fontSize;
     $("#text").css("font-size", `${fontSize}px`);
     $("*").css("font-family", font);
     let fonts=[
@@ -269,4 +271,7 @@
         localStorage.setItem("opts", JSON.stringify(opts));
     };
     setInterval(saveOpts, 1);
+    } catch (e) {
+        alert(e);
+    };
 </script>
