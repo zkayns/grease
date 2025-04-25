@@ -2,27 +2,11 @@
 <html>
     <head>
         <title>Grease</title>
+        <link rel="stylesheet" href="jquery-ui.css">
+        <link rel="stylesheet" href="https://zkayns.github.io/colorpicker/jquery.colorpicker.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap&family=National+Park:wght@200..800&display=swap&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap&family=Lobster&display=swap&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap&family=Roboto Mono&family=Special+Gothic&display=swap&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     </head>
     <body>
         <input type="file" id="fileUpload" accept="*" style="display:none">
@@ -37,14 +21,14 @@
             </div>
             <button id="editButton">Edit</button>
             <div id="editMenu" class="menu">
-                <button id="replaceButton">Replace</button>
+                <button id="replaceButton" class="menuButton">Replace</button>
             </div>
             <button id="viewButton">View</button>
             <div id="viewMenu" class="menu">
-                <button id="fontButton">Edit Font</button>
+                <button id="fontButton" class="menuButton">Edit Font</button>
             </div>
         </div>
-        <p id="text" contenteditable></p>
+        <p id="text" contenteditable autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></p>
         <div id="replaceUi" class="ui">
             <p style="text-align: center;">Replace Tool</p>
             <p style="min-height: 12px"> </p>
@@ -61,13 +45,15 @@
             <p style="min-height: 12px;"> </p>
             <select name="font" id="font"></select>
             <p style="min-height: 12px;"> </p>
+            <input type="text" value="#ffffff" id="fontColor" class="colorPicker" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <p style="min-height: 12px;"> </p>
             <button style="border: 1px solid black; padding: 2;" id="saveFontOpts">Save</button>
         </div>
     </body>
     <style>
         * {
             margin: 0;
-            padding: 0;
+            padding: 0px;
             color: white;
             font-family: "Roboto Mono";
             outline: none;
@@ -87,13 +73,12 @@
         }
         button:hover {
             filter: brightness(130%);
-            font-weight: bold;
         }
         #topBar {
             position: sticky;
             top: 0;
             border: 1px solid black;
-            padding: 1;
+            padding: 1px;
             background-color: #333333;
         }
         #replaceUi {
@@ -107,10 +92,11 @@
         .ui {
             position: absolute;
             border: 1px solid black;
-            padding: 4;
+            padding: 4px;
             background-color: #333333;
         }
         .menu {
+            line-height: 0;
             border: 1px solid black;
             position: absolute;
             background-color: #424242;
@@ -119,22 +105,50 @@
         .menuButton {
             width: 100%;
             text-align: left;
+            padding: 1px;
+        }
+        .colorPicker {
+            padding: 0px !important;
+            min-width: 24px;
+            max-width: 24px;
+            height: 24px;
+            color: rgba(0, 0, 0, 0);
+            font-size: 0px;
+            cursor: pointer;
+        }
+        .ui-colorpicker {
+            background-color: #333333;
+        }
+        .ui-colorpicker-rgb-r {
+            color: red !important;
+        }
+        .ui-colorpicker-rgb-g {
+            color: green !important;
+        }
+        .ui-colorpicker-rgb-b {
+            color: blue !important;
+        }
+        .ui-dialog-title {
+            background-color: #333333;
+            font-size: 20px;
+        }
+        .ui-dialog-titlebar, .ui-dialog-buttonpane {
+            background-color: #333333;
+            border: 0px solid rgb(0, 0, 0, 0);
         }
         #text {
             width: 100%;
             overflow-y: scroll;
             font-size: 14px;
         }
-        input {
-            background-color: #333333;
-            border: 1px solid black;
-        }
-        select {
+        input, select {
             background-color: #333333;
             border: 1px solid black;
         }
     </style>
-    <script src="jquery-3.7.1.js"></script>
+    <script src="https://zkayns.github.io/grease/jquery-3.7.1.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="https://zkayns.github.io/colorpicker/jquery.colorpicker.js"></script>
     <script>
         try {
             let temp;
@@ -193,85 +207,106 @@
                 if (y<bounds.top) return false;
                 return true;
             };
-            $(document).on("mousedown", function(e){
+            $(document).on("mousedown", (e)=>{
                 if (!boundingCheck(e.clientX, e.clientY, $("#fileButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#fileMenu").get(0).getBoundingClientRect())&&$("#fileMenu").is(":visible")) $("#fileMenu").hide();
                 if (!boundingCheck(e.clientX, e.clientY, $("#editButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#editMenu").get(0).getBoundingClientRect())&&$("#editMenu").is(":visible")) $("#editMenu").hide();
                 if (!boundingCheck(e.clientX, e.clientY, $("#viewButton").get(0).getBoundingClientRect())&&!boundingCheck(e.clientX, e.clientY, $("#viewMenu").get(0).getBoundingClientRect())&&$("#viewMenu").is(":visible")) $("#viewMenu").hide();
                 if (!boundingCheck(e.clientX, e.clientY, $("#replaceUi").get(0).getBoundingClientRect())&&$("#replaceUi").is(":visible")) $("#replaceUi").hide();
-                if (!boundingCheck(e.clientX, e.clientY, $("#fontUi").get(0).getBoundingClientRect())&&$("#fontUi").is(":visible")) $("#fontUi").hide();
+                if (!boundingCheck(e.clientX, e.clientY, $("#fontUi").get(0).getBoundingClientRect())&&$("#fontUi").is(":visible")&&!$(".ui-colorpicker").length) $("#fontUi").hide();
             });
-            $(document).on("keydown", function(e){
+            $(document).on("keydown", (e)=>{
                 if (e.key=="Escape") $(".ui").hide();
             });
             $("#text").css("height", window.innerHeight-parseFloat($("#topBar").get(0).getBoundingClientRect().height)+"px");
-            $("#fileButton").on("mousedown", function(){
+            $("#fileButton").on("mousedown", ()=>{
                 $("#fileMenu").toggle();
                 $("#fileMenu").css("top", $("#fileButton").get(0).getBoundingClientRect().bottom);
                 $("#fileMenu").css("left", $("#fileButton").get(0).getBoundingClientRect().left-2);
             });
-            $("#newFile").on("click", function(){
+            $("#newFile").on("click", ()=>{
                 $("#text").html("");
                 $("#fileMenu").hide();
             });
-            $("#openFile").on("click", function(){
+            $("#openFile").on("click", ()=>{
                 $("#fileUpload").click();
                 $("#fileMenu").hide();
             });
-            $("#editButton").on("mousedown", function(){
+            $("#editButton").on("mousedown", ()=>{
                 $("#editMenu").toggle();
                 $("#editMenu").css("top", $("#editButton").get(0).getBoundingClientRect().bottom);
                 $("#editMenu").css("left", $("#editButton").get(0).getBoundingClientRect().left-2);
             });
-            $("#viewButton").on("mousedown", function(){
+            $("#viewButton").on("mousedown", ()=>{
                 $("#viewMenu").toggle();
                 $("#viewMenu").css("top", $("#viewButton").get(0).getBoundingClientRect().bottom);
                 $("#viewMenu").css("left", $("#viewButton").get(0).getBoundingClientRect().left-2);
             });
-            $("#fileUpload").on("change", function(){
+            $("#fileUpload").on("change", ()=>{
                 temp=new FileReader();
                 temp2=this.files[0];
                 temp.addEventListener("load", ()=>{$("#text").html(temp.result)}, false);
                 temp.readAsText(temp2);
             });
-            $("#saveFile").on("click", function(){
+            $("#saveFile").on("click", ()=>{
                 temp=new Blob([$("#text").html()]);
                 $("#download").attr("id", "download");
                 $("#download").attr("href", URL.createObjectURL(temp));
                 $("#download").attr("download", "savedText.txt");
                 $("#fileMenu").hide();
             });
-            $("#replaceButton").on("click", function(){
+            $("#replaceButton").on("click", ()=>{
                 $("#editMenu").hide();
                 $("#replaceUi").toggle();
                 $("#replaceUi").css("left", window.innerWidth/2-$("#replaceUi").get(0).getBoundingClientRect().width/2);
                 $("#replaceUi").css("top", window.innerHeight/2-$("#replaceUi").get(0).getBoundingClientRect().height/2);
             });
-            $("#replace").on("click", function(){
+            $("#replace").on("click", ()=>{
                 $("#text").html($("#text").html().replaceAll($("#toReplace").val(), $("#replaceWith").val()))
             });
-            $("#fontButton").on("click", function(){
+            $("#fontButton").on("click", ()=>{
                 $("#viewMenu").hide();
                 $("#fontUi").toggle();
                 $("#fontUi").css("left", window.innerWidth/2-$("#fontUi").get(0).getBoundingClientRect().width/2);
                 $("#fontUi").css("top", window.innerHeight/2-$("#fontUi").get(0).getBoundingClientRect().height/2);
                 $("#fontSize").val(fontSize);
             });
-            $("#saveFontOpts").on("click", function(){
+            $("#saveFontOpts").on("click", ()=>{
                 if (!isNaN(parseFloat($("#fontSize").val()))) $("#text").css("font-size", `${$("#fontSize").val()}px`);
                 $("*").css("font-family", `"${$("#font").val()}"`);
+                $("*").css("color", `#${$("#fontColor").val()}`);
                 font=$("#font").val();
                 $("#text").css("height", window.innerHeight-parseFloat($("#topBar").get(0).getBoundingClientRect().height)+"px");
                 fontSize=parseFloat($("#fontSize").val());
                 $("#fontUi").hide();
             });
-            $("#fontSize").on("keydown", function(e){
+            $("#fontSize").on("keydown", (e)=>{
                 if (isNaN(parseInt(e.key))&&e.key!="Backspace"&&e.key!=".") e.preventDefault();
             });
+            $("#fontColor").colorpicker({
+                showAnim: "",
+                position: {
+                    my: "center",
+                    at: "center",
+                    of: document
+                },
+                title: "Font Color",
+                parts: "full",
+                showOn: "click",
+                alpha: true
+            });
+            $("#fontColor").on("change", ()=>{
+                $("#fontColor").css("background-color", `#${$("#fontColor").val()}`); 
+            });
+            $("#fontColor").css("background-color", `#${$("#fontColor").val()}`); 
             function saveOpts() {
                 let opts={fontSize: fontSize, font: font};
                 localStorage.setItem("opts", JSON.stringify(opts));
             };
+            function pickerFix() {
+                $(".ui-colorpicker").css("font-family", `${font} !important`);
+            };
             setInterval(saveOpts, 1);
+            setInterval(pickerFix, 1);
         } catch (e) {
             alert(e);
         };
